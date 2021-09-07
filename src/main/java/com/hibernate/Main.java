@@ -41,12 +41,16 @@ public class Main {
 //            session.save(instructor);
 //            session.save(instructorDetail2);
 //            session.save(instructor2);
+            User user1=new User("mark");
+            User user2=new User("alloy");
+            session.save(user1);
+            session.save(user2);
 
             Set<ChatMessage> messages= new HashSet<ChatMessage>();
-            Chatroom chatroom= new Chatroom("mark","2","discutii",messages);
+            Chatroom chatroom= new Chatroom("discutii",messages);
             session.save(chatroom);
             for(int i=0;i<10;i++){
-                ChatMessage chatmessage= new ChatMessage("content"+i, "sender"+i,i,chatroom);
+                ChatMessage chatmessage= new ChatMessage("content"+i,user1,user2,i,chatroom);
                 session.save(chatmessage);
                 chatroom.getMessages().add(chatmessage);
             }

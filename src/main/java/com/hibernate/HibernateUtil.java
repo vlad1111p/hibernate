@@ -36,6 +36,10 @@ public class HibernateUtil {
                 configuration.addAnnotatedClass(InstructorDetail.class);
                 configuration.addAnnotatedClass(ChatMessage.class);
                 configuration.addAnnotatedClass(Chatroom.class);
+                configuration.addAnnotatedClass(Post.class);
+                configuration.addAnnotatedClass(PostComment.class);
+                configuration.addAnnotatedClass(User.class);
+
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
-
+import com.hibernate.User;
 @Entity
 @Getter
 @Setter
@@ -15,21 +15,16 @@ public class Chatroom {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer chatroom_id;
 
-    @Column(name = "recipient")
-    private String recipient;
 
-    @Column(name = "sender")
-    private String sender;
 
     @Column(name = "title")
     private String title;
 
-    @OneToMany(mappedBy="chatroom")
+    @OneToMany(mappedBy="chatroom", cascade=CascadeType.ALL,orphanRemoval = true)
     private Set<ChatMessage> messages;
 
-    public Chatroom(String recipient, String sender, String title, Set<ChatMessage> messages) {
-        this.recipient = recipient;
-        this.sender = sender;
+    public Chatroom( String title, Set<ChatMessage> messages) {
+
         this.title = title;
         this.messages = messages;
     }
