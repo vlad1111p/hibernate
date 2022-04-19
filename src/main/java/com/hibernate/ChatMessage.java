@@ -15,8 +15,6 @@ public class ChatMessage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
-
     @Column(name = "content")
     private String content;
 
@@ -31,8 +29,6 @@ public class ChatMessage {
 
     @Column(name = "type")
     private Integer type;
-
-
 
     @ManyToOne
     @JoinColumn(name="chat_message_id", nullable=false ,insertable = false,updatable = false)

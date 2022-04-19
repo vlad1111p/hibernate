@@ -15,8 +15,6 @@ public class Chatroom {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer chatroom_id;
 
-
-
     @Column(name = "title")
     private String title;
 
